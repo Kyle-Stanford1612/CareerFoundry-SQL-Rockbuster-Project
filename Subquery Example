@@ -1,0 +1,23 @@
+# The following code queries the top 10 cities within the top 10 countries by total customers
+
+SELECT CI.city,
+	   CO.country,
+	   COUNT(customer_id) AS total_customers
+FROM customer C
+INNER JOIN address A on C.address_id = A.address_id
+INNER JOIN city CI on A.city_id = CI.city_id
+INNER JOIN country CO on CI.country_id = CO.country_id
+WHERE country IN 
+(
+	SELECT CO.country
+	FROM customer C
+	INNER JOIN address A on C.address_id = A.address_id
+	INNER JOIN city CI on A.city_id = CI.city_id
+	INNER JOIN country CO on CI.country_id = CO.country_id
+	GROUP BY CO.country
+	ORDER BY COUNT(customer_id) DESC
+	LIMIT 10
+)
+GROUP BY CI.city, CO.country
+ORDER BY COUNT(customer_id) DESC
+LIMIT 10;
