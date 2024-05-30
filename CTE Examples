@@ -1,0 +1,39 @@
+# The following code returns the average rental duration of the top 10 movies in Rockbuster's database
+
+WITH top_movies_cte (movie) AS
+(
+	SELECT F.title AS movie,
+		   SUM(P.amount) AS total_revenue
+	FROM payment P
+	INNER JOIN rental R on P.rental_id = R.rental_id
+	INNER JOIN inventory I on R.inventory_id = I.inventory_id
+	INNER JOIN film F on I.film_id = F.film_id
+	INNER JOIN film_category FC on I.film_id = FC.film_id
+	INNER JOIN category C on FC.category_id = C.category_id
+	GROUP BY movie
+	ORDER BY total_revenue DESC
+	LIMIT 10
+)
+SELECT AVG(F.rental_duration)
+FROM film F
+INNER JOIN top_movies_cte on F.title = top_movies_cte.movie
+
+# By changing the ORDER BY clause to ASC, a similar version of the code above returns the average rental duration for the bottom 10 movies (that have been rented at least once)
+
+WITH bottom_movies_cte (movie) AS
+(
+	SELECT F.title AS movie,
+		   SUM(P.amount) AS total_revenue
+	FROM payment P
+	INNER JOIN rental R on P.rental_id = R.rental_id
+	INNER JOIN inventory I on R.inventory_id = I.inventory_id
+	INNER JOIN film F on I.film_id = F.film_id
+	INNER JOIN film_category FC on I.film_id = FC.film_id
+	INNER JOIN category C on FC.category_id = C.category_id
+	GROUP BY movie
+	ORDER BY total_revenue ASC
+	LIMIT 10
+)
+SELECT AVG(F.rental_duration)
+FROM film F
+INNER JOIN bottom_movies_cte on F.title = bottom_movies_cte.movie
