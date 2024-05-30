@@ -1,5 +1,5 @@
 # SQL - Rockbuster Video Rental Project
-This repository contains my SQL code for a student project I completed while studying at CareerFoundry. This project culminated in the creation of a data dictionary, documented queries to be shared with other analysts, and a data-driven presentation which answered business questions.
+This repository contains my SQL code for a student project I completed whilst studying at CareerFoundry. This project culminated in the creation of a data dictionary, documented queries to be shared with other analysts, and a data-driven presentation which answered business questions.
 
 ## Project Context:
 Rockbuster Stealth LLC is a movie rental company that used to have stores around the world. Facing stiff competition from streaming services such as Netflix and Amazon Prime, the Rockbuster Stealth management team is planning to use its existing movie licenses to launch an online video rental service to stay competitive.
