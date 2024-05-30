@@ -18,7 +18,7 @@ The Rockbuster Stealth Management Board has asked a series of business questions
 ● Do sales figures vary between geographic regions?
 
 # Data and Tools Used:
-Rockbuster's relational database management system was queried using **PostgreSQL** to answer business questions. [Rockbuster Database Visualised](/assets/images/ERD - Rockbuster.png)
+Rockbuster's relational database management system was queried using **PostgreSQL** to answer business questions. [ERD]([/assets/images/ERD - Rockbuster.png](https://github.com/Kyle-Stanford1612/CareerFoundry-SQL-Rockbuster-Project/blob/main/ERD%20-%20Rockbuster.png?raw=true))
 
 # Visualisations:
 The link to visualisations made using Tableau Public can be accessed [here](https://public.tableau.com/views/Exercise3_10-RockbusterStealthLLCCharts/RockbusterVisualisations?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link).
